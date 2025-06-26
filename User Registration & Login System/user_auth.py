@@ -10,7 +10,6 @@ def register():
 
  # option 2
 def login():
-   
     name = input("Enter Your Name: ")
     password = input("Enter password: ")
 
