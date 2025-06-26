@@ -75,10 +75,10 @@ SCPMS-Project/
              
 
 # Support
-If you have any questions or need help, please:
+If you have any questions or need help, contact on:
 
-Open an issue on GitHub
-Email: aqsaabbasi@gmail.com
+📧 Email: <a href="mailto:aqsaabbasi2690@example.com">Email</a><br>
+🐱 GitHub: <a href="https://github.comAqsaabbasi2690/" target="_blank">Aqsa Abbasi</a>
 
 ⭐ If you found this project helpful, give it a star!
 
