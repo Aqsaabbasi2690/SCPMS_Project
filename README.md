@@ -52,25 +52,27 @@ A modular console-based Python application designed for **personal productivity 
 
 | Tool                     | Description                                                                 |
 |--------------------------|-----------------------------------------------------------------------------|
-| 🧮 Calculator             | Perform basic arithmetic: +, −, ×, ÷                                        |
-| 📏 Unit Converter         | Convert between Length (m/ft), Weight (kg/lb), Temperature (°C/°F)         |
-| 🔐 Password Generator     | Generates secure random passwords using Python's `random` module            |
+|  Calculator             | Perform basic arithmetic: +, −, ×, ÷                                        |
+|  Unit Converter         | Convert between Length (m/ft), Weight (kg/lb), Temperature (°C/°F)         |
+|  Password Generator     | Generates secure random passwords using Python's `random` module            |
 
 ---
 
 ## 📁 Project Structure
-
+<pre>
 SCPMS-Project/
--├── auth/                           # User Registration & Login
--├── diary/                          # Personal Diary Module
--├── contacts/                       # Contact Book
--├── todo/                          # To-Do List Manager
--├── expenses/                      # Expense Tracker
--├── utilities/                     # Utility Tools
--│   ├── Calculator
--│   ├── Unit Converter
--│   └── Password Generator
--├── README.md                      # Project Documentation
+├── auth/                          # User Registration & Login
+├── diary/                         # Personal Diary Module
+├── contacts/                      # Contact Book
+├── todo/                          # To-Do List Manager
+├── expenses/                      # Expense Tracker
+├── utilities/                     # Utility Tools
+│   ├── Calculator
+│   ├── Unit Converter
+│   └── Password Generator
+├── README.md                      # Project Documentation
+</pre>
+             
 
 
 
