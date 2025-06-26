@@ -74,6 +74,12 @@ SCPMS-Project/
 </pre>
              
 
+# Support
+If you have any questions or need help, please:
 
+Open an issue on GitHub
+Email: aqsaabbasi@gmail.com
+
+⭐ If you found this project helpful, give it a star!
 
 
