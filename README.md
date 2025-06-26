@@ -61,15 +61,17 @@ A modular console-based Python application designed for **personal productivity 
 ## 📁 Project Structure
 
 SCPMS-Project/
-│
-├── auth/ # User Registration & Login
-├── diary/ # Personal Diary Module
-├── contacts/ # Contact Book
-├── todo/ # To-Do List Manager
-├── expenses/ # Expense Tracker
-├── utilities/ # Utility Tools (Calculator, Unit Converter, Password Generator)
-├── README.md # Project Documentation
-└── main.py # Main menu entry point
+-├── auth/                           # User Registration & Login
+-├── diary/                          # Personal Diary Module
+-├── contacts/                       # Contact Book
+-├── todo/                          # To-Do List Manager
+-├── expenses/                      # Expense Tracker
+-├── utilities/                     # Utility Tools
+-│   ├── Calculator
+-│   ├── Unit Converter
+-│   └── Password Generator
+-├── README.md                      # Project Documentation
+
 
 
 
