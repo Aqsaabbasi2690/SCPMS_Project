@@ -3,6 +3,8 @@ import csv
 
 contact_file = "contacts.csv"
 
+
+
 # option 1
 def add_contact():
     Name = input("Enter Name: ")
