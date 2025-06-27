@@ -69,13 +69,14 @@ def delete_task():
 def menu():
   while True:
     print("\n==== To_Do_List Manager ====")
-    print("Add Task")
-    print("View Pending Tasks")
-    print("Mark Your Task")
-    print("Delete Tasks")
+    print("1.Add Task")
+    print("2.View Pending Tasks")
+    print("3.Mark Your Task")
+    print("4.Delete Tasks")
+    print("5.Exit")
   
 
-    choice = input("Choose one option")
+    choice = input("Choose one option 1-5:")
     
     if choice == "1":
       add_task()
@@ -85,7 +86,9 @@ def menu():
       mark_complete
     elif choice == "4":
       delete_task()
+    elif choice == "5":
+      exit()
       break
     else:
-      ("Invalid choice. Try again")
+      ("Invalid choice")
 menu()
