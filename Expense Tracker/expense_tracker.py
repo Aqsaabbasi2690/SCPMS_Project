@@ -79,6 +79,7 @@ def menu(username):
         print("4 Monthly Report")
         print("5 Total Expenses")
         print("6 Exit")
+      
 
         choice = input("Choose one option: ")
         if choice == "1":
@@ -91,6 +92,9 @@ def menu(username):
             monthly_report(username)
         elif choice == "5":
             total_expenses(username)
+        elif choice == "6":
+            exit(username)
+
             break
         else:
             print("Invalid choice.")
