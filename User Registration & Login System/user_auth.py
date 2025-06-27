@@ -10,6 +10,7 @@ def register():
 
  # option 2
 def login():
+   
     name = input("Enter Your Name: ")
     password = input("Enter password: ")
 
@@ -20,14 +21,17 @@ def login():
             print("Login!")
             return
     print("Invalid name or password.")
-print("Register")
-print("Login")
+print("1.Register")
+print("2.Login")
+print("3.Exit")
 
-choice = input("Choose 1 or 2: ")
+choice = input("Choose 1 or 3: ")
 
 if choice == "1":
     register()
 elif choice == "2":
     login()
+elif choice == "3":
+    exit()
 else:
     print("Invalid choice.")
