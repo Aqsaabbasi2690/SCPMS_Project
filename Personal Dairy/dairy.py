@@ -15,7 +15,7 @@ def view():
     with open("notes.txt", "r") as file:
         for line in file:
             if line.startswith(date + ":"):
-                print("Note:", line.split(":"))
+                print("Note:",  line.strip().split(":")[1])
                 found = True
                 break
     if not found:
@@ -67,11 +67,12 @@ def delete():
         
 # main part
 while True:
-    print("Add Note")
-    print("View Note")
-    print("Edit Note")
-    print("Delete Note")
-    choice = input("Choose an option: ")
+    print("1.Add Note")
+    print("2.View Note")
+    print("3.Edit Note")
+    print("4.Delete Note")
+    print("5.Exit")
+    choice = input("Choose an option 1-5 : ")
 
     match choice:
         case "1":
@@ -82,6 +83,8 @@ while True:
             edit()
         case "4":
             delete()
+        case "5":
+            exit()
             break
         case _:
             print("Invalid choice")
