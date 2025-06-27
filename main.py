@@ -19,13 +19,14 @@ def menu():
     print("6. Calculator")
     print("7. Unit Converter")
     print("8. Password Gen")
+    print("9. Exit")
 
 def run(choice):
     try:
         if choice == "1":
             exec(open("User Registration & Login System/user_auth.py").read())
         elif choice == "2":
-            exec(open("Personal Dairy/diary.py").read())
+            exec(open("Personal Dairy/dairy.py").read())
         elif choice == "3":
             exec(open("Contact Book/contacts.py").read())
         elif choice == "4":
@@ -38,18 +39,18 @@ def run(choice):
             exec(open("Utility Tools Section/unit_converter.py").read())
         elif choice == "8":
             exec(open("Utility Tools Section/Random_Password_Generator.py").read())
-        elif choice == 9:
-            print("program end!")
+        else:
+            print("Invalid choice!")
     except:
         print("File not found!")
     
-    input("choose an option:")
+    input("Enter to return:")
 
 while True:
     menu()
     choice = input("Choose 1-9: ")
     if choice == "9":
-        print("program end!")
+        print("program ended!")
         break
     
     run(choice)
