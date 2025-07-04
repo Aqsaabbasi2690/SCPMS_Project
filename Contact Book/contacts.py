@@ -1,4 +1,12 @@
 
+
+import os
+
+
+if not os.path.exists("data/logged_in.txt"):
+    print("Access Denied. Please log in first.")
+    exit()
+
 import csv
 
 contact_file = "data/contacts.csv"
@@ -11,7 +19,7 @@ def add_contact():
     Address = input("Enter Address: ")
 
     with open(contact_file, "a", newline='') as file:
-        writer = csv.writer(file) # prepare file to write csv rows
+        writer = csv.writer(file)
         writer.writerow([Name, Phone, Email, Address])
     print("Contact added\n")
 
