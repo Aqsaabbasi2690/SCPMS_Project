@@ -1,16 +1,22 @@
-# To-Do List Manager
+import os
+
+# Create data folder
+os.makedirs("data", exist_ok=True)
+
+# File to store tasks
+task_file = "data/task.txt"
 
 def add_task():
     task = input("Enter your task: ")
     priority = input("Enter task priority (first priority / second priority / third priority): ")
-    with open("task.txt", "a") as file:
+    with open(task_file, "a") as file:
         file.write(f"{task} | {priority} | Pending\n")
     print("Task added!")
 
 def view_tasks():
     print("Your Pending Tasks:")
     found = False
-    with open("task.txt", "r") as file:
+    with open(task_file, "r") as file:
         for line in file:
             parts = line.strip().split("|")
             if len(parts) == 3 and parts[2].strip() == "Pending":
@@ -23,7 +29,7 @@ def mark_complete():
     taskname = input("Enter the task to mark as complete: ")
     lines = []
     found = False
-    with open("task.txt", "r") as file:
+    with open(task_file, "r") as file:
         for line in file:
             parts = line.strip().split("|")
             if parts[0].strip() == taskname and parts[2].strip() == "Pending":
@@ -31,7 +37,7 @@ def mark_complete():
                 found = True
             else:
                 lines.append(line)
-    with open("task.txt", "w") as file:
+    with open(task_file, "w") as file:
         file.writelines(lines)
     if found:
         print("Task marked as complete!")
@@ -42,14 +48,14 @@ def delete_task():
     task = input("Enter the task to delete: ")
     lines = []
     found = False
-    with open("task.txt", "r") as file:
+    with open(task_file, "r") as file:
         for line in file:
             if not line.startswith(task + " |"):
                 lines.append(line)
             else:
                 found = True
     if found:
-        with open("task.txt", "w") as file:
+        with open(task_file, "w") as file:
             file.writelines(lines)
         print("Task deleted.")
     else:
