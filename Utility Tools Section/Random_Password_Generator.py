@@ -1,3 +1,9 @@
+import os
+if not os.path.exists("data/logged_in.txt"):
+    print("Access Denied. Please log in first.")
+    exit()
+
+
 import random
 import string
 length = int(input("Enter password length: "))
