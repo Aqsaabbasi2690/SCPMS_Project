@@ -1,3 +1,10 @@
+import os
+if not os.path.exists("data/logged_in.txt"):
+    print("Access Denied. Please log in first.")
+    exit()
+
+
+
 unit = input("Which unit you want to convert? (Weight / Length / Temperature): ").lower()
 
 if unit == "length":
