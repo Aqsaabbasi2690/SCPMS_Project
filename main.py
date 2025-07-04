@@ -38,7 +38,7 @@ def run(choice):
             if choice == "1":
                 exec(open("User Registration & Login System/user_auth.py").read())
             elif choice == "2":
-                return False  # Exit
+                return False  
             else:
                 print("Please login first!")
                 input("Press Enter to continue...")
@@ -64,7 +64,7 @@ def run(choice):
                     print("Logged out successfully!")
                     input("Press Enter to continue...")
                 case "9":
-                    return False  # Exit
+                    return False  
                 case _:
                     print("Invalid choice!")
                     input("Press Enter to continue...")
