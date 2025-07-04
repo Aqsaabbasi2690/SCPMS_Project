@@ -2,10 +2,9 @@
 
 import os
 
-# Ensure data folder exists
+
 os.makedirs("data", exist_ok=True)
 
-# Login session file
 SESSION_FILE = "data/logged_in.txt"
 
 def clear():
@@ -74,7 +73,6 @@ def run(choice):
         input("Press Enter to return...")
     return True
 
-# Main loop
 while True:
     menu()
     if check_login():
