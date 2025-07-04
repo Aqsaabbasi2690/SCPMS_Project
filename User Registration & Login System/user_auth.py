@@ -18,7 +18,7 @@ def login():
                 saved_name, saved_password = line.strip().split(",")
                 if name == saved_name and password == saved_password:
                     print("Login!")
-                    # Add this line after successful login:
+                  
                     with open("logged_in.txt", "w") as f:
                         f.write("authenticated")
                     return
