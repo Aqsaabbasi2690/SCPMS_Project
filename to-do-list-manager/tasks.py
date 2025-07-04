@@ -3,6 +3,10 @@ import os
 # Create data folder
 os.makedirs("data", exist_ok=True)
 
+if not os.path.exists("data/logged_in.txt"):
+    print("Access Denied. Please log in first.")
+    exit()
+
 # File to store tasks
 task_file = "data/task.txt"
 
