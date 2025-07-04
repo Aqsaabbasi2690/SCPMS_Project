@@ -1,12 +1,19 @@
 import os
 from datetime import datetime
 
+if not os.path.exists("data/logged_in.txt"):
+    print("Access Denied. Please log in first.")
+    exit()
+
+with open("data/logged_in.txt", "r") as f:
+    username = f.read().strip()
+
 def get_expense_file(username):
     folder = "data/expenses"
     os.makedirs(folder, exist_ok=True)
     return f"{folder}/{username}_expenses.txt"
 
-#  Add Expense
+# 1. Add Expense
 def add_expense(username):
     file = get_expense_file(username)
     try:
@@ -15,12 +22,12 @@ def add_expense(username):
         print("Invalid amount. Please enter a number.")
         return
     description = input("Enter description: ")
-    date = datetime.today().strftime('%Y-%m-%d') 
+    date = datetime.today().strftime('%Y-%m-%d')
     with open(file, "a") as f:
         f.write(f"{date},{amount},{description}\n")
     print("Expense added!")
 
-# View All
+# 2. View All
 def view_expenses(username):
     file = get_expense_file(username)
     if not os.path.exists(file):
@@ -31,7 +38,7 @@ def view_expenses(username):
             date, amount, desc = line.strip().split(",")
             print(f"{date} | {desc} | Rs. {amount}")
 
-# Daily Report
+# 3. Daily Report
 def daily_report(username):
     today = datetime.today().strftime('%Y-%m-%d')
     file = get_expense_file(username)
@@ -43,7 +50,7 @@ def daily_report(username):
                 total += int(amount)
     print(f"Total expenses today: Rs. {total}")
 
-# Monthly Report
+# 4. Monthly Report
 def monthly_report(username):
     this_month = datetime.today().strftime('%Y-%m')
     file = get_expense_file(username)
@@ -55,7 +62,7 @@ def monthly_report(username):
                 total += int(amount)
     print(f"Total expenses this month: Rs. {total}")
 
-#  Total Expense
+# 5. Total Expense
 def total_expenses(username):
     file = get_expense_file(username)
     total = 0
@@ -65,7 +72,7 @@ def total_expenses(username):
             total += int(amount)
     print(f"Total expenses: Rs. {total}")
 
-
+# Main Menu
 def menu(username):
     while True:
         print("\n--- Expense Tracker ---")
@@ -93,6 +100,4 @@ def menu(username):
         else:
             print("Invalid choice.")
 
-
-username = input("Enter Your Name: ")
 menu(username)
