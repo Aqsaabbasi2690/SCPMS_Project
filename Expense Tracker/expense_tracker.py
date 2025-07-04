@@ -13,7 +13,7 @@ def get_expense_file(username):
     os.makedirs(folder, exist_ok=True)
     return f"{folder}/{username}_expenses.txt"
 
-# 1. Add Expense
+# Add Expense
 def add_expense(username):
     file = get_expense_file(username)
     try:
@@ -27,7 +27,7 @@ def add_expense(username):
         f.write(f"{date},{amount},{description}\n")
     print("Expense added!")
 
-# 2. View All
+# View All
 def view_expenses(username):
     file = get_expense_file(username)
     if not os.path.exists(file):
@@ -38,7 +38,7 @@ def view_expenses(username):
             date, amount, desc = line.strip().split(",")
             print(f"{date} | {desc} | Rs. {amount}")
 
-# 3. Daily Report
+#  Daily Report
 def daily_report(username):
     today = datetime.today().strftime('%Y-%m-%d')
     file = get_expense_file(username)
@@ -50,7 +50,7 @@ def daily_report(username):
                 total += int(amount)
     print(f"Total expenses today: Rs. {total}")
 
-# 4. Monthly Report
+# Monthly Report
 def monthly_report(username):
     this_month = datetime.today().strftime('%Y-%m')
     file = get_expense_file(username)
@@ -62,7 +62,7 @@ def monthly_report(username):
                 total += int(amount)
     print(f"Total expenses this month: Rs. {total}")
 
-# 5. Total Expense
+# Total Expense
 def total_expenses(username):
     file = get_expense_file(username)
     total = 0
