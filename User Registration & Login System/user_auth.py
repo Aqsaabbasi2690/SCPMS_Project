@@ -1,26 +1,31 @@
-#option.1
-
+# option.1  
 def register():
     name = input("Enter Your Name: ")
     password = input("Enter password: ")
     
     with open("users.txt", "a") as file:
         file.write(f"{name},{password}\n")
-    print(" Registered!")
+    print("Registered!")
 
- # option 2
+# option 2
 def login():
-   
     name = input("Enter Your Name: ")
     password = input("Enter password: ")
+    
+    try:
+        with open("users.txt", "r") as file:
+            for line in file:
+                saved_name, saved_password = line.strip().split(",")
+                if name == saved_name and password == saved_password:
+                    print("Login!")
+                    # Add this line after successful login:
+                    with open("logged_in.txt", "w") as f:
+                        f.write("authenticated")
+                    return
+        print("Invalid name or password.")
+    except FileNotFoundError:
+        print("No users found. Please register first.")
 
-    with open("users.txt", "r") as file:
-     for line in file:
-        saved_name, saved_password = line.strip().split(",")
-        if name == saved_name and password == saved_password:
-            print("Login!")
-            return
-    print("Invalid name or password.")
 print("1.Register")
 print("2.Login")
 print("3.Exit")
