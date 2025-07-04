@@ -1,4 +1,4 @@
-""" SCPMS - Smart Console Personal Management System """
+""" SCPMS """
 
 import os
 
