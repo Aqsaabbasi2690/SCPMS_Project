@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+
 """ Main Menu """
 
 import os
@@ -13,7 +13,6 @@ def check_login():
 def menu():
     clear()
     if check_login():
-        # Show full menu if logged in
         print("=== Welcome to SCPMS ===")
         print("1. Diary")
         print("2. Contacts")
@@ -25,7 +24,7 @@ def menu():
         print("8. Logout")
         print("9. Exit")
     else:
-        # Show only login option if not logged in
+      
         print("=== Welcome to SCPMS ===")
         print("Please login first!")
         print("1. Login/Register")
@@ -34,7 +33,7 @@ def menu():
 def run(choice):
     try:
         if not check_login():
-            # If not logged in, only allow login
+         
             if choice == "1":
                 exec(open("User Registration & Login System/user_auth.py").read())
             elif choice == "2":
@@ -44,7 +43,7 @@ def run(choice):
                 input("Press Enter to continue...")
                 return True
         else:
-            # If logged in, allow all options
+         
             if choice == "1":
                 exec(open("Personal Dairy/dairy.py").read())
             elif choice == "2":
