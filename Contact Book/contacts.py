@@ -1,9 +1,7 @@
 
 import csv
 
-contact_file = "contacts.csv"
-
-
+contact_file = "data/contacts.csv"
 
 # option 1
 def add_contact():
@@ -13,7 +11,7 @@ def add_contact():
     Address = input("Enter Address: ")
 
     with open(contact_file, "a", newline='') as file:
-        writer = csv.writer(file)
+        writer = csv.writer(file) # prepare file to write csv rows
         writer.writerow([Name, Phone, Email, Address])
     print("Contact added\n")
 
