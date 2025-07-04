@@ -9,7 +9,6 @@ def register():
     name = input("Enter Your Name: ")
     password = input("Enter password: ")
     
-    
     with open("data/users.txt", "a") as file:
         file.write(f"{name},{password}\n")
     print("Registered!")
@@ -20,19 +19,17 @@ def login():
     password = input("Enter password: ")
     
     try:
-     
         with open("data/users.txt", "r") as file:
             for line in file:
                 saved_name, saved_password = line.strip().split(",")
                 if name == saved_name and password == saved_password:
                     print("Login!")
-                    # Create session file in data folder
                     with open("data/logged_in.txt", "w") as f:
                         f.write("authenticated")
                     return
         print("Invalid name or password.")
-    except FileNotFoundError:
-        print("No users found. Please register first.")
+    except:
+        print("No users found. Register first.")
 
 print("1.Register")
 print("2.Login")
