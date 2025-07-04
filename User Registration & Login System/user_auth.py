@@ -1,9 +1,16 @@
+import os
+
+
+if not os.path.exists("data"):
+    os.makedirs("data")
+
 # option.1  
 def register():
     name = input("Enter Your Name: ")
     password = input("Enter password: ")
     
-    with open("users.txt", "a") as file:
+    
+    with open("data/users.txt", "a") as file:
         file.write(f"{name},{password}\n")
     print("Registered!")
 
@@ -13,13 +20,14 @@ def login():
     password = input("Enter password: ")
     
     try:
-        with open("users.txt", "r") as file:
+     
+        with open("data/users.txt", "r") as file:
             for line in file:
                 saved_name, saved_password = line.strip().split(",")
                 if name == saved_name and password == saved_password:
                     print("Login!")
-                  
-                    with open("logged_in.txt", "w") as f:
+                    # Create session file in data folder
+                    with open("data/logged_in.txt", "w") as f:
                         f.write("authenticated")
                     return
         print("Invalid name or password.")
