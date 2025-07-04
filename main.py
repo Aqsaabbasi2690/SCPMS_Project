@@ -1,31 +1,34 @@
-
-""" Main Menu """
+""" SCPMS - Smart Console Personal Management System """
 
 import os
+
+# Ensure data folder exists
+os.makedirs("data", exist_ok=True)
+
+# Login session file
+SESSION_FILE = "data/logged_in.txt"
 
 def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 def check_login():
     """Check if user is logged in"""
-    return os.path.exists("logged_in.txt")
+    return os.path.exists(SESSION_FILE)
 
 def menu():
     clear()
+    print("=== Welcome to SCPMS ===")
     if check_login():
-        print("=== Welcome to SCPMS ===")
         print("1. Diary")
         print("2. Contacts")
-        print("3. Todo")
+        print("3. To-Do List")
         print("4. Expenses")
         print("5. Calculator")
         print("6. Unit Converter")
-        print("7. Password Gen")
+        print("7. Password Generator")
         print("8. Logout")
         print("9. Exit")
     else:
-      
-        print("=== Welcome to SCPMS ===")
         print("Please login first!")
         print("1. Login/Register")
         print("2. Exit")
@@ -33,7 +36,6 @@ def menu():
 def run(choice):
     try:
         if not check_login():
-         
             if choice == "1":
                 exec(open("User Registration & Login System/user_auth.py").read())
             elif choice == "2":
@@ -41,50 +43,45 @@ def run(choice):
             else:
                 print("Please login first!")
                 input("Press Enter to continue...")
-                return True
         else:
-         
-            if choice == "1":
-                exec(open("Personal Dairy/dairy.py").read())
-            elif choice == "2":
-                exec(open("Contact Book/contacts.py").read())
-            elif choice == "3":
-                exec(open("to-do-list-manager/tasks.py").read())
-            elif choice == "4":
-                exec(open("Expense Tracker/expense_tracker.py").read())
-            elif choice == "5":
-                exec(open("Utility Tools Section/calculator.py").read())
-            elif choice == "6":
-                exec(open("Utility Tools Section/unit_converter.py").read())
-            elif choice == "7":
-                exec(open("Utility Tools Section/Random_Password_Generator.py").read())
-            elif choice == "8":
-                # Logout
-                if os.path.exists("logged_in.txt"):
-                    os.remove("logged_in.txt")
-                print("Logged out successfully!")
-                input("Press Enter to continue...")
-            else:
-                print("Invalid choice!")
-                input("Press Enter to continue...")
+            match choice:
+                case "1":
+                    exec(open("Personal Dairy/dairy.py").read())
+                case "2":
+                    exec(open("Contact Book/contacts.py").read())
+                case "3":
+                    exec(open("to-do-list-manager/tasks.py").read())
+                case "4":
+                    exec(open("Expense Tracker/expense_tracker.py").read())
+                case "5":
+                    exec(open("Utility Tools Section/calculator.py").read())
+                case "6":
+                    exec(open("Utility Tools Section/unit_converter.py").read())
+                case "7":
+                    exec(open("Utility Tools Section/Random_Password_Generator.py").read())
+                case "8":
+                    if os.path.exists(SESSION_FILE):
+                        os.remove(SESSION_FILE)
+                    print("Logged out successfully!")
+                    input("Press Enter to continue...")
+                case "9":
+                    return False  # Exit
+                case _:
+                    print("Invalid choice!")
+                    input("Press Enter to continue...")
     except Exception as e:
         print(f"Error: {e}")
-        input("Enter to return:")
-    
+        input("Press Enter to return...")
     return True
 
+# Main loop
 while True:
     menu()
     if check_login():
-        choice = input("Choose 1-9: ")
-        if choice == "9":
-            print("Program ended!")
-            break
+        choice = input("Choose an option (1-9): ")
     else:
-        choice = input("Choose 1-2: ")
-        if choice == "2":
-            print("Program ended!")
-            break
-    
+        choice = input("Choose an option (1-2): ")
+
     if not run(choice):
+        print("Program ended!")
         break
