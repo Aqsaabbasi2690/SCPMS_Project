@@ -13,7 +13,7 @@ def add_contact():
     Address = input("Enter Address: ")
 
     with open(contact_file, "a", newline='') as file:
-        writer = csv.writer(file) # prepare file to write csv rows
+        writer = csv.writer(file)
         writer.writerow([Name, Phone, Email, Address])
     print("Contact added\n")
 
