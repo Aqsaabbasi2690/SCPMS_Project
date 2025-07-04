@@ -1,6 +1,10 @@
 import os
 
 
+if not os.path.exists("data/logged_in.txt"):
+    print("Access Denied. Please log in first.")
+    exit()
+
 os.makedirs("data", exist_ok=True)
 note_file = "data/notes.txt"
 
