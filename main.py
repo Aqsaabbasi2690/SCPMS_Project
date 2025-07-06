@@ -1,17 +1,12 @@
-""" SCPMS """
-
 import os
 
-
 os.makedirs("data", exist_ok=True)
-
 SESSION_FILE = "data/logged_in.txt"
 
 def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 def check_login():
-    """Check if user is logged in"""
     return os.path.exists(SESSION_FILE)
 
 def menu():
@@ -28,7 +23,7 @@ def menu():
         print("8. Logout")
         print("9. Exit")
     else:
-        print("Please login first!")
+        print("Please Login or Register to continue!")
         print("1. Login/Register")
         print("2. Exit")
 
@@ -38,9 +33,9 @@ def run(choice):
             if choice == "1":
                 exec(open("User Registration & Login System/user_auth.py").read())
             elif choice == "2":
-                return False  
+                return False
             else:
-                print("Please login first!")
+                print("Invalid choice. Please select '1' to Login/Register or '2' to Exit.")
                 input("Press Enter to continue...")
         else:
             match choice:
@@ -64,12 +59,15 @@ def run(choice):
                     print("Logged out successfully!")
                     input("Press Enter to continue...")
                 case "9":
-                    return False  
+                    return False
                 case _:
                     print("Invalid choice!")
                     input("Press Enter to continue...")
+    except FileNotFoundError as e:
+        print(f"Error: Required file not found. Please ensure all project files are in their correct directories: {e}")
+        input("Press Enter to return...")
     except Exception as e:
-        print(f"Error: {e}")
+        print(f"An unexpected error occurred: {e}")
         input("Press Enter to return...")
     return True
 
@@ -79,7 +77,6 @@ while True:
         choice = input("Choose an option (1-9): ")
     else:
         choice = input("Choose an option (1-2): ")
-
     if not run(choice):
         print("Program ended!")
         break
